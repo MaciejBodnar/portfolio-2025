@@ -28,7 +28,7 @@ export const ExperienceCard = ({
   technologies,
 }: ExperienceCardProps) => {
   return (
-    <article className="flex flex-col rounded-lg items-center space-y-7 inset-x-0 bottom-0 flex-shrink-0 w-full md:w-[600px] xl:w-[900px] snap-center bg-gray-600 p-4 md:p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-auto h-[550px]">
+    <article className="flex flex-col rounded-lg items-center space-y-7 inset-x-0 bottom-0 flex-shrink-0 w-full md:w-[600px] xl:w-[900px] snap-center bg-gray-600 p-4 md:p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-auto h-[450px] md:h-[550px]">
       <motion.img
         initial={{
           y: -100,
@@ -47,9 +47,9 @@ export const ExperienceCard = ({
         alt=""
       />
       <div className="px-0 md:px-10">
-        <h4 className="text-3xl font-light">{jobTitle}</h4>
-        <p className="font-bold text-xl mt-1">{company}</p>
-        <div className="flex space-x-2 my-2">
+        <h4 className="text-xl md:text-3xl font-light">{jobTitle}</h4>
+        <p className="font-bold text-lg md:text-xl mt-1">{company}</p>
+        <div className="flex space-x-2 my-1 md:my-2">
           {technologies?.map((technology, index) => (
             <Image
               key={index}
@@ -61,7 +61,7 @@ export const ExperienceCard = ({
             />
           ))}
         </div>
-        <p className="uppercase py-5 text-gray-300">
+        <p className="uppercase py-2 md:py-5 text-gray-300">
           {workStarted} - {workEnded}
         </p>
 

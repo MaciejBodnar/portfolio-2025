@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { type SanityDocument } from "next-sanity";
 import { client } from "../src/app/sanity/client";
 import { SocialIcon } from "react-social-icons";
@@ -66,7 +65,12 @@ export const Header = () => {
         }}
         className="flex flex-row items-center text-gray-300 cursor-pointer"
       >
-        <Link href="#contact">
+        <div
+          onClick={() => {
+            const element = document.getElementById("contact");
+            element?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
           <SocialIcon
             url={"https://www.email.com/"}
             fgColor="gray"
@@ -76,7 +80,7 @@ export const Header = () => {
           <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
             Email me!
           </p>
-        </Link>
+        </div>
       </motion.div>
     </header>
   );
