@@ -56,6 +56,9 @@ export const Projects = () => {
           </div>
         ))}
       </div>
+      <div className="absolute bottom-35 text-xs tracking-[3px] text-gray-200 pt-1">
+        ⬅︎ Swipe to see other projects ⮕
+      </div>
       <div className="w-full absolute top-[30%] bg-[#f7ab0a]/10 left-0 h-[500px] -skew-y-12" />
     </motion.div>
   );

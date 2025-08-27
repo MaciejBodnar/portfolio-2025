@@ -32,7 +32,9 @@ export const Skill = ({ image, progress, title }: SkillProps) => {
           </div>
         </div>
       </div>
-      <p className="text-xs tracking-[3px] text-gray-500 pt-1">{title}</p>
+      <p className="flex justify-center text-xs tracking-[3px] text-gray-500 pt-1">
+        {title}
+      </p>
     </div>
   );
 };

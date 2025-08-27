@@ -41,10 +41,13 @@ export const Header = () => {
       >
         {posts.map((post) => (
           <SocialIcon
+            target="_blank"
             key={post._id}
             url={post.url}
             fgColor="gray"
             bgColor="transparent"
+            style={{ height: 50, width: 50 }}
+            className="hover:scale-125 hover:bg-orange-300 hover:rounded-full transition-transform duration-300"
           />
         ))}
       </motion.div>
@@ -76,6 +79,8 @@ export const Header = () => {
             fgColor="gray"
             bgColor="transparent"
             as="p"
+            style={{ height: 50, width: 50 }}
+            className="hover:scale-125 hover:bg-orange-300 hover:rounded-full transition-transform duration-300"
           />
           <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
             Email me!
