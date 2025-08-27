@@ -55,7 +55,7 @@ export const Hero = () => {
           <span className="mr-3">{text}</span>
           <Cursor cursorColor="#F7AB0A" />
         </h1>
-        <div className="pt-5 space-x-2">
+        <div className="pt-5 space-x-2 space-y-2">
           <button
             className="heroButton"
             onClick={() => {

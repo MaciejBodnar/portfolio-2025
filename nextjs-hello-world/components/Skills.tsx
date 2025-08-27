@@ -49,6 +49,7 @@ export const Skills = () => {
             key={skill._id}
             image={urlFor(skill.image).url()}
             progress={skill.progress}
+            title={skill.title}
           />
         ))}
       </div>
