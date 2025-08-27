@@ -1,0 +1,64 @@
+"use client";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { type SanityDocument } from "next-sanity";
+import { client } from "../src/app/sanity/client";
+import { Skill } from "./Skill";
+
+export const Skills = () => {
+  const [skills, setSkills] = useState<SanityDocument[]>([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const POSTS_QUERY = `*[_type==\"skill\"]`;
+      const options = { next: { revalidate: 30 } };
+      const data = await client.fetch<SanityDocument[]>(
+        POSTS_QUERY,
+        {},
+        options
+      );
+      setSkills(data);
+    };
+    fetchPosts();
+  }, []);
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+      }}
+      transition={{
+        duration: 1.5,
+      }}
+      whileInView={{
+        opacity: 1,
+      }}
+      className="flex relative flex-col text-center md:text-left xl:text-row max-w-[2000px] xl:px-10 min-h-screen justify-center xl:space-y-0 mx-auto items-center"
+    >
+      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+        Skills
+      </h3>
+
+      <h3 className="absolute top-36 uppercase tracking-[3px] text-gray-500 text-sm">
+        Hover over a skill for currency profieciency
+      </h3>
+
+      <div className="grid grid-cols-4 gap-5">
+        {skills.map((skill) => (
+          <Skill
+            key={skill._id}
+            image={
+              `https://cdn.sanity.io/images/zm9erauz/production/` +
+              skill.image.asset._ref.substring(
+                6,
+                skill.image.asset._ref.length - 4
+              ) +
+              "." +
+              skill.image.asset._ref.slice(-3)
+            }
+            progress={skill.progress}
+          />
+        ))}
+      </div>
+    </motion.div>
+  );
+};
