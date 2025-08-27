@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { type SanityDocument } from "next-sanity";
 import { client } from "../src/app/sanity/client";
 import { Skill } from "./Skill";
+import { urlFor } from "@/app/sanity/sanityImages";
 
 export const Skills = () => {
   const [skills, setSkills] = useState<SanityDocument[]>([]);
@@ -38,23 +39,15 @@ export const Skills = () => {
         Skills
       </h3>
 
-      <h3 className="absolute top-36 uppercase tracking-[3px] text-gray-500 text-sm">
+      <h3 className="absolute top-36 uppercase tracking-[3px] text-gray-500 text-sm px-4 md:px-0">
         Hover over a skill for currency profieciency
       </h3>
 
-      <div className="grid grid-cols-4 gap-5">
+      <div className="grid grid-cols-3 md:grid-cols-4 gap-5 px-4 md:px-0">
         {skills.map((skill) => (
           <Skill
             key={skill._id}
-            image={
-              `https://cdn.sanity.io/images/zm9erauz/production/` +
-              skill.image.asset._ref.substring(
-                6,
-                skill.image.asset._ref.length - 4
-              ) +
-              "." +
-              skill.image.asset._ref.slice(-3)
-            }
+            image={urlFor(skill.image).url()}
             progress={skill.progress}
           />
         ))}

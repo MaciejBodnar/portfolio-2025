@@ -2,10 +2,10 @@
 import { useState, useEffect } from "react";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import { BackgroundCircle } from "./BackgroundCircle";
-import Link from "next/link";
 import Image from "next/image";
 import { type SanityDocument } from "next-sanity";
 import { client } from "../src/app/sanity/client";
+import { urlFor } from "@/app/sanity/sanityImages";
 
 export const Hero = () => {
   const [posts, setPosts] = useState<SanityDocument[]>([]);
@@ -41,15 +41,7 @@ export const Hero = () => {
           className="relative rounded-full h-32 w-32 mx-auto object-cover"
           width={500}
           height={500}
-          src={
-            `https://cdn.sanity.io/images/zm9erauz/production/` +
-            post.profilePic.asset._ref.substring(
-              6,
-              post.profilePic.asset._ref.length - 4
-            ) +
-            "." +
-            post.profilePic.asset._ref.slice(-3)
-          }
+          src={urlFor(post.profilePic).url()}
           alt=""
           key={post._id}
         />
@@ -63,19 +55,43 @@ export const Hero = () => {
           <span className="mr-3">{text}</span>
           <Cursor cursorColor="#F7AB0A" />
         </h1>
-        <div className="pt-5">
-          <Link href="#about">
-            <button className="heroButton">About</button>
-          </Link>
-          <Link href="#experience">
-            <button className="heroButton">Experience</button>
-          </Link>
-          <Link href="#skills">
-            <button className="heroButton">Skills</button>
-          </Link>
-          <Link href="#project">
-            <button className="heroButton">Projects</button>
-          </Link>
+        <div className="pt-5 space-x-2">
+          <button
+            className="heroButton"
+            onClick={() => {
+              const element = document.getElementById("about");
+              element?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            About
+          </button>
+          <button
+            className="heroButton"
+            onClick={() => {
+              const element = document.getElementById("experience");
+              element?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Experience
+          </button>
+          <button
+            className="heroButton"
+            onClick={() => {
+              const element = document.getElementById("skills");
+              element?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Skills
+          </button>
+          <button
+            className="heroButton"
+            onClick={() => {
+              const element = document.getElementById("project");
+              element?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Projects
+          </button>
         </div>
       </div>
     </div>

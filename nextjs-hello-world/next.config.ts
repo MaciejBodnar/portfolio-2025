@@ -1,9 +1,18 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+module.exports = {
   images: {
-    domains: ["ecsmedia.pl", "www.drupal.org", "encrypted-tbn0.gstatic.com", "cdn.sanity.io"],
+    remotePatterns: [
+      {
+        hostname: 'ecsmedia.pl',
+      },
+      {
+        hostname: 'www.drupal.org',
+      },
+      {
+        hostname: 'encrypted-tbn0.gstatic.com',
+      },
+      {
+        hostname: 'cdn.sanity.io',
+      },
+    ],
   },
-};
-
-export default nextConfig;
+}
