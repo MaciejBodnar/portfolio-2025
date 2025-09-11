@@ -47,7 +47,7 @@ export const experience = defineType({
     defineField({
       name: 'points',
       title: "Points",
-      type: 'array',
+      type: '',
       of: [{type: "string"}],
     }),
   ],
