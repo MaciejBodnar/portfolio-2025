@@ -28,7 +28,7 @@ export const ExperienceCard = ({
   technologies,
 }: ExperienceCardProps) => {
   return (
-    <article className="flex flex-col rounded-lg items-center space-y-7 inset-x-0 bottom-0 flex-shrink-0 w-full md:w-[600px] xl:w-full snap-center bg-gray-600 p-4 md:p-10 hover:opacity-100 opacity-40 transition-opacity duration-200 overflow-auto h-[450px] md:h-full">
+    <article className="flex flex-col rounded-lg items-center space-y-7 inset-x-0 bottom-0 flex-shrink-0 w-full snap-center bg-gray-600 p-4 md:p-10 hover:opacity-100 opacity-40 transition-opacity duration-200 overflow-auto h-[450px] md:h-[550px] xl:h-full">
       <motion.img
         initial={{
           y: -100,
@@ -65,11 +65,11 @@ export const ExperienceCard = ({
             />
           ))}
         </div>
-        <p className="flex justify-center uppercase text-base md:text-xl py-2 text-gray-300">
+        <p className="flex justify-center uppercase text-base md:text-xl py-2 md:py-4 text-gray-300">
           {workStarted} - {workEnded}
         </p>
 
-        <ul className="list-disc space-y-4 text-2xl grid grid-cols-2 gap-x-4 gap-y-2">
+        <ul className="list-disc mx-0 xl:mx-30 space-y-4 text-lg grid grid-cols-2 gap-x-4 gap-y-2">
           {points?.map((point, i) => (
             <li key={i}>{point}</li>
           ))}
