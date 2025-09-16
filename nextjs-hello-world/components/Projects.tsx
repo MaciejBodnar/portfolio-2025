@@ -49,7 +49,7 @@ export const Projects = () => {
                   {project.title}:
                 </span>
               </h4>
-              <p className="text-base md:text-lg text-center md:text-left line-clamp-15">
+              <p className="text-base md:text-lg text-center md:text-left line-clamp-11 md:line-clamp-none">
                 {project.summary}
               </p>
             </div>

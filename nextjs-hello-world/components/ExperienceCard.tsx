@@ -69,7 +69,7 @@ export const ExperienceCard = ({
           {workStarted} - {workEnded}
         </p>
 
-        <ul className="list-disc mx-0 xl:mx-30 space-y-4 text-lg grid grid-cols-2 gap-x-4 gap-y-2">
+        <ul className="list-disc mx-2 xl:mx-30 space-y-4 text-lg grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
           {points?.map((point, i) => (
             <li key={i}>{point}</li>
           ))}
